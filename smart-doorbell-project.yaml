@@ -51,7 +51,7 @@ switch:
       - delay: 1s
       - switch.turn_off: relay
     id: relay
-    internal: true
+    # internal: true
     icon: mdi:alarm-bell
   - platform: restart
     name: "Doorbell Restart"
@@ -75,7 +75,7 @@ binary_sensor:
     pin:
       number: GPIO4
       mode: INPUT_PULLUP
-    name: "doorbell"
+    name: "Doorbell"
     filters:
       - invert:
       - delayed_on: 25ms
