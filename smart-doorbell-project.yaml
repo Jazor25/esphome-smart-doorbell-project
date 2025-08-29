@@ -1,0 +1,89 @@
+esphome:
+  name: smart-doorbell-project
+  friendly_name: Smart Doorbell Project
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_encryption_key_sdb
+
+ota:
+  - platform: esphome
+    password: !secret ota_password_sdb
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Smart-Doorbell-Project"
+    password: !secret ap_wifi_password_sdb
+
+captive_portal:
+
+globals:
+  - id: chime
+    type: bool
+    restore_value: true
+    initial_value: 'true'
+
+sensor:
+  - platform: uptime
+    name: Doorbell Uptime
+  - platform: wifi_signal
+    name: Doorbell WiFi Signal
+    update_interval: 60s
+
+switch:
+  - platform: gpio
+    name: "Gong"
+    pin: GPIO19
+    on_turn_on:
+      - delay: 1s
+      - switch.turn_off: relay
+    id: relay
+    internal: true
+    icon: mdi:alarm-bell
+  - platform: restart
+    name: "Doorbell Restart"
+  - platform: template
+    name: Doorbell Chime Active
+    id: chime_active
+    restore_mode: DISABLED
+    turn_on_action:
+      - globals.set:
+          id: chime
+          value: 'true'
+    turn_off_action:
+      - globals.set:
+          id: chime
+          value: 'false'
+    lambda: |-
+      return id(chime);
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO4
+      mode: INPUT_PULLUP
+    name: "doorbell"
+    filters:
+      - invert:
+      - delayed_on: 25ms
+      - delayed_off: 25ms
+    on_press:
+      then:
+        - if:
+            condition:
+              lambda: 'return id(chime);'
+            then:
+              - switch.turn_on: relay
