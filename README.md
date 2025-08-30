@@ -2,6 +2,13 @@
 
 This smart doorbell project transforms a traditional doorbell into an intelligent system using ESPHome and Home Assistant integration. The system detects doorbell button presses and activates a relay-controlled chime while providing remote control capabilities.
 
+### Visuals
+More images are in the img folder.
+
+![Mounting](img/mounting_4.jpg)
+
+
+
 ### Features
 - Detects button presses via GPIO input with debouncing to avoid false positives
 - Enable/disable chime remotely via Home Assistant in case you need silence
