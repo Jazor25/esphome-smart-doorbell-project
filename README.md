@@ -2,27 +2,28 @@
 
 This smart doorbell project transforms a traditional doorbell into an intelligent system using ESPHome and Home Assistant integration. The system detects doorbell button presses and activates a relay-controlled chime while providing remote control capabilities.
 
-### Key Features
-- **Smart Doorbell Detection**: Detects button presses via GPIO input with debouncing
-- **Automated Chime Control**: Activates relay-controlled chime when doorbell is pressed
-- **Manual Chime Toggle**: Enable/disable chime remotely through Home Assistant
-- **WiFi Connectivity**: Connects to home network with fallback hotspot
-- **Home Assistant Integration**: Full API integration with encrypted communication
-- **System Monitoring**: Uptime and WiFi signal strength monitoring
-- **Remote Management**: Restart device remotely
+### Features
+- Detects button presses via GPIO input with debouncing to avoid false positives
+- Enable/disable chime remotely via Home Assistant in case you need silence
+- Connects to home network with fallback hotspot
+- Home Assistant Integration 
+- Uptime and WiFi signal strength monitoring
+- Restart device remotely
+- Manual gong trigger via Home Assistant to annoy your housemate :)
 
-## Hardware Requirements
-* ESP32 Development Board (Used: ESP32 V4 with CP2102, AZDelivery)
-* 1× AC/DC LM2596hv Step-Down Voltage Regulator (to convert AC to DC and decrease voltage to 5V to power ESP32 and Relais module)
-* 1× SRD-05VDC-5L-C Relais Module
-* Power over doorbell transformer (usually 8-12VAC) or external power source
+## Required Hardware
+* ESP32 Development Board (Used: ESP32 V4 with CP2102, AZDelivery). As most dev boards, this one can handle 5VDC.
+* 1× AC/DC LM2596hv Step-Down Voltage Regulator (to convert AC to DC and decrease voltage to 5V to power ESP32 and Relais module). AC to DC is important in case you want to connect this project to your existing doorbell transformer which typically runs on 8-12VAC 
+* 1× SRD-05VDC-5L-C Relais Module because the typical Gong needs more amp that an esp32 can deliver. This Relais can also handle AC which would be tricky using Mosfets.
+* To be powered over doorbell transformer (usually 8-12VAC) or external power source. Alternatively a separate transformer can be used. A separate transformer that delivers 5VDC would make the above mentioned step-down regulator dispensable.
 * wiring cables
+* Optional: WAGO connectors, terminal clamps and perfboard for easier wiring (see images)
 
 ## Wiring & Setup
 
 ### GPIO Pin Assignments
 - **GPIO4**: Doorbell button input (with internal pullup)
-- **GPIO19**: Relay control output (for chime)
+- **GPIO19**: Relay control output (to trigger the gong)
 
 ### Power Supply Setup
 1. **Input**: 8-12VAC from doorbell transformer
@@ -53,17 +54,17 @@ Relay Output → gong
 **Doorbell Input**:
 - Pin: GPIO4 with internal pullup
 - Debouncing: 25ms delays to prevent false triggers
-- Signal inversion: Button press = LOW
 
 **Relay Output**:
 - Pin: GPIO19
-- Activation time: 1 second pulse
-- Control: Respects global chime enable/disable setting
+- Activation time: 1 second pulse to trigger the gong
+- Control: global chime (gong) enable/disable setting
 
 **Network**:
 - Primary: Your WiFi network
 - Fallback: Creates "Smart-Doorbell-Project" hotspot
 - Captive portal for easy configuration
+- Basic functionality runs without any network connection, to ensure that the doorbell works proberly in case of network outage
 
 ### Customization Options
 - Change GPIO pins by modifying pin numbers in YAML
