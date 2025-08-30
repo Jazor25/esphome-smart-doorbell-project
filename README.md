@@ -1,7 +1,5 @@
 # Smart Doorbell Project
 
-## Project Overview
-
 This smart doorbell project transforms a traditional doorbell into an intelligent system using ESPHome and Home Assistant integration. The system detects doorbell button presses and activates a relay-controlled chime while providing remote control capabilities.
 
 ### Key Features
@@ -10,10 +8,8 @@ This smart doorbell project transforms a traditional doorbell into an intelligen
 - **Manual Chime Toggle**: Enable/disable chime remotely through Home Assistant
 - **WiFi Connectivity**: Connects to home network with fallback hotspot
 - **Home Assistant Integration**: Full API integration with encrypted communication
-- **OTA Updates**: Wireless firmware updates
 - **System Monitoring**: Uptime and WiFi signal strength monitoring
 - **Remote Management**: Restart device remotely
-- **Persistent Settings**: Chime preferences survive reboots
 
 ## Hardware Requirements
 * ESP32 Development Board (Used: ESP32 V4 with CP2102, AZDelivery)
@@ -51,69 +47,8 @@ Relay Output → gong
 - Ensure proper AC/DC isolation when working with doorbell transformer
 - Test all connections before final installation
 
-## Software Installation
-
-### Prerequisites
-- [ESPHome](https://esphome.io/) installed on your system
-- [Home Assistant](https://www.home-assistant.io/) (recommended for full functionality)
-- USB connection to ESP32 board
-- Python 3.7+ environment
-
-### Installation Steps
-
-1. **Install ESPHome** (if not already installed):
-   ```bash
-   pip install esphome
-   ```
-
-2. **Clone this repository**:
-   ```bash
-   git clone <your-repo-url>
-   cd smart-doorbell-project
-   ```
-
-3. **Create secrets file** (see Configuration section)
-
-4. **Compile and flash**:
-   ```bash
-   # First time (via USB)
-   esphome run smart-doorbell-project.yaml
-   
-   # Subsequent updates (OTA)
-   esphome run smart-doorbell-project.yaml --device <device-ip>
-   ```
-
-5. **Monitor logs**:
-   ```bash
-   esphome logs smart-doorbell-project.yaml
-   ```
-
-## Configuration
-
-### Creating secrets.yaml
-
-Create a `secrets.yaml` file in the project directory with your sensitive information:
-
-```yaml
-# WiFi Configuration
-wifi_ssid: "YourWiFiNetworkName"
-wifi_password: "YourWiFiPassword"
-
-# ESPHome API Encryption (generate with: esphome wizard)
-api_encryption_key_sdb: "your-32-character-base64-encryption-key"
-
-# OTA Update Password
-ota_password_sdb: "your-secure-ota-password"
-
-# Fallback Hotspot Password
-ap_wifi_password_sdb: "your-hotspot-password"
-```
 
 ### Key Configuration Options
-
-**Board Settings**:
-- Framework: ESP-IDF (for better performance)
-- Board: esp32dev (compatible with most ESP32 variants)
 
 **Doorbell Input**:
 - Pin: GPIO4 with internal pullup
