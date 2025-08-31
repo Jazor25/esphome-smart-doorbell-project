@@ -35,6 +35,9 @@ More images are in the img folder.
 
 ## Wiring & Setup
 
+## Installation & Configuration
+See [docs/installation_configuration.md](docs/installation_configuration.md)  
+
 ### GPIO Pin Assignments
 - **GPIO4**: Doorbell button input (with internal pullup)
 - **GPIO19**: Relay control output (to trigger the gong)
@@ -61,7 +64,6 @@ Relay Output → gong
 ### Assembly Notes
 - Ensure proper AC/DC isolation when working with doorbell transformer
 - Test all connections before final installation
-
 
 ### Key Configuration Options
 
