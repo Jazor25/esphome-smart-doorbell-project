@@ -64,6 +64,13 @@ Relay Output → gong
 ### Assembly Notes
 - Ensure proper AC/DC isolation when working with doorbell transformer
 - Test all connections before final installation
+- Voltage Regulation: The buck converter must be precisely adjusted to 5V to prevent damage to the ESP32 and connected modules. Connect 8-12VAC to the input pins, attach a multimeter (set to voltage mode) to the output pins, and carefully adjust the potentiometer with a screwdriver until the multimeter reads exactly 5VDC. This may be readjusted when you switch to different input voltage.
+
+### 3D Print Case Hardware
+- 4x Ruthex M3 Threaded Inserts
+- 4x M3 Screws
+- 6x Ruthex M2 Threaded Inserts
+- 6x M2 Screws
 
 ### Key Configuration Options
 
