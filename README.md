@@ -1,4 +1,4 @@
-# Smart Doorbell Project
+# ESPHome Smart Doorbell Project
 
 This smart doorbell project transforms a traditional doorbell into an intelligent system using ESPHome and Home Assistant integration. The system detects doorbell button presses and activates a relay-controlled chime while providing remote control capabilities. 
 
