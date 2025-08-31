@@ -1,6 +1,8 @@
 # Smart Doorbell Project
 
-This smart doorbell project transforms a traditional doorbell into an intelligent system using ESPHome and Home Assistant integration. The system detects doorbell button presses and activates a relay-controlled chime while providing remote control capabilities. doorbell detections can be used for home assistant automations such as taking a photo with your existing security camera on-press and send it with a notification to your mobile devices.
+This smart doorbell project transforms a traditional doorbell into an intelligent system using ESPHome and Home Assistant integration. The system detects doorbell button presses and activates a relay-controlled chime while providing remote control capabilities. 
+
+Doorbell detections can be used for home assistant automations such as taking a photo with your existing security camera on-press and send it with a notification to your mobile devices. You can also deactivate the gong/chime at times where you need silence.
 
 Some ideas come from the excellent work of [Marcel Zuidwijk](https://www.zuidwijk.com/esphome-based-doorbell/).
 
