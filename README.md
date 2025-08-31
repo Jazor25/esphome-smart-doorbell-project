@@ -8,8 +8,8 @@ Some ideas come from the excellent work of [Marcel Zuidwijk](https://www.zuidwij
 More images are in the img folder.
 
 ![Mounting](img/mounting_4.jpg)
+![Connections](img/mounting_6.jpg)
 ![Assembled](img/assembled_case.jpg)
-
 
 
 ### Features
