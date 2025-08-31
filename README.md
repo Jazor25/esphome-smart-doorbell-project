@@ -8,6 +8,7 @@ Some ideas come from the excellent work of [Marcel Zuidwijk](https://www.zuidwij
 More images are in the img folder.
 
 ![Mounting](img/mounting_4.jpg)
+![Assembled](img/assembled_case.jpg)
 
 
 
@@ -18,7 +19,7 @@ More images are in the img folder.
 - Home Assistant Integration 
 - Uptime and WiFi signal strength monitoring
 - Restart device remotely
-- Manual gong trigger via Home Assistant to annoy your housemate :)
+- Manual gong trigger via Home Assistant to annoy your housemate ;)
 
 ## Required Hardware
 * ESP32 Development Board (Used: ESP32 V4 with CP2102, AZDelivery). As most dev boards, this one can handle 5VDC.
