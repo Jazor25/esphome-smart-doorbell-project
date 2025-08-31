@@ -10,6 +10,8 @@ More images are in the img folder.
 ![Mounting](img/mounting_4.jpg)
 ![Connections](img/mounting_6.jpg)
 ![Assembled](img/assembled_case.jpg)
+![In Home Assistant](img/home_assistant.png)
+![Circuit Design](img/circuit_image.png)
 
 
 ### Features
