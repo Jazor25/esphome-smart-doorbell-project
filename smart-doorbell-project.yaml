@@ -48,7 +48,7 @@ switch:
     name: "Gong"
     pin: GPIO19
     on_turn_on:
-      - delay: 1s
+      - delay: 300ms
       - switch.turn_off: relay
     id: relay
     # internal: true
